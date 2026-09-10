@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Depop Inventory</h1>
+
+        <div class="form-card">
+            <Label>PICTURE</Label>
+            <input type="file" id="image" accept="image/*">
+            <label>Item Name</label>
+            <input id="itemName">
+
+            <label>Brand</label>
+            <input id="brand">
+
+            <label>Size</label>
+            <input id="size">
+
+            <label>Buy Price</label>
+            <input id="buyPrice" type="number">
+
+            <label>Listing Price</label>
+            <input id="listingPrice" type="number">
+
+            <label>Status</label>
+            <select id="status">
+                <option value="Unlisted">Unlisted</option>
+                <option value="Listed">Listed</option>
+                <option value="Sold">Sold</option>
+                <option value="Shipped">Shipped</option>
+            </select>
+
+            <button id="ADD">Add Item</button>
+
+        </div>
+
+        <h2>Inventory</h2>
+
+        <div id="inventoryList"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

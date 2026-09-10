@@ -1,0 +1,188 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f6f8;
+    color: #1f2937;
+}
+
+.container {
+    width: 90%;
+    max-width: 750px;
+    margin: 50px auto;
+}
+
+h1 {
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 28px;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 16px;
+}
+
+.form-card {
+    background: white;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
+    background: white;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #111827;
+}
+
+button {
+    margin-top: 18px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #111827;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.88;
+}
+
+#inventoryList {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+#inventoryList p {
+    margin: 0;
+    padding: 18px 20px;
+
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+#inventoryList p:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: 0.2s;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    .form-card {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
+
+.item-card {
+    display: flex;
+    align-items: center;
+
+    /* pushes the text farther away from the image */
+    gap: 35px;
+
+    background: white;
+    padding: 22px;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.item-card img {
+    /* bigger clothing photo */
+    width: 170px;
+    height: 170px;
+
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+
+    /* stops flexbox from shrinking the image */
+    flex-shrink: 0;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    /* extra push to the right */
+    padding-left: 10px;
+
+    flex: 1;
+}
+
+.item-info h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.item-info p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #6b7280;
+}
+
+.item-info p:last-child {
+    margin-top: 8px;
+    width: fit-content;
+    padding: 6px 12px;
+    border-radius: 20px;
+
+    background: #f3f4f6;
+    color: #111827;
+
+    font-size: 13px;
+    font-weight: 700;
+}
