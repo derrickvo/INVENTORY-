@@ -1,0 +1,1 @@
+A web-based inventory management app built to help resellers track their products from purchase to sale. Users can add items with details like brand, size, purchase price, listing price, status, and product images, then manage inventory as items move from unlisted to listed, sold, and shipped. The app uses local storage so inventory data stays saved between sessions.
