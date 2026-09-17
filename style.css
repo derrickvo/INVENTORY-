@@ -4,185 +4,498 @@
 
 body {
     margin: 0;
+    min-height: 100vh;
+
     font-family: Arial, Helvetica, sans-serif;
-    background: #f5f6f8;
-    color: #1f2937;
+
+    background: #f4f0e8;
+    color: #1c1c1c;
 }
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
 
 .container {
-    width: 90%;
-    max-width: 750px;
-    margin: 50px auto;
+    width: 94%;
+    max-width: 1220px;
+
+    margin: 18px auto 28px;
 }
+
+
+/* =========================
+   PAGE TITLE
+========================= */
 
 h1 {
-    font-size: 34px;
-    font-weight: 700;
-    margin-bottom: 28px;
-    letter-spacing: -0.5px;
+    margin: 0 0 18px;
+
+    text-align: center;
+
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: -1px;
+
+    color: #1c1c1c;
 }
 
-h2 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-top: 40px;
-    margin-bottom: 16px;
+
+/* =========================
+   DASHBOARD LAYOUT
+========================= */
+
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr);
+
+    gap: 26px;
+
+    align-items: start;
 }
+
+
+/* =========================
+   STATS PANEL
+========================= */
+
+.stats-panel {
+    position: sticky;
+    top: 18px;
+
+    margin-left: 18px;
+
+    padding: 20px;
+
+    background: #fffdf7;
+
+    border: 2px solid #1c1c1c;
+    border-radius: 8px;
+
+    box-shadow: 5px 5px 0 #b8b5ae;
+}
+
+.stats-panel h2 {
+    margin: 0 0 14px;
+
+    font-size: 17px;
+    font-weight: 900;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    color: #1c1c1c;
+}
+
+
+/* =========================
+   STAT CARDS
+========================= */
+
+.stat-card {
+    padding: 11px 0;
+
+    border-bottom: 1px dashed #b8b5ae;
+}
+
+.stat-card:last-child {
+    border-bottom: none;
+}
+
+.stat-card span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+
+    color: #68705a;
+}
+
+.stat-card strong {
+    display: block;
+
+    font-size: 22px;
+    font-weight: 900;
+
+    color: #1c1c1c;
+}
+
+
+/* PROFIT */
+
+#totalPROFITS {
+    color: #68705a;
+}
+
+
+/* =========================
+   FORM CARD
+========================= */
 
 .form-card {
-    background: white;
-    padding: 28px;
-    border-radius: 14px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-
     display: flex;
     flex-direction: column;
-    gap: 10px;
+
+    gap: 4px;
+
+    padding: 22px 24px;
+
+    background: #fffdf7;
+
+    border: 2px solid #1c1c1c;
+    border-radius: 8px;
+
+    box-shadow: 6px 6px 0 #56738c;
 }
+
+
+/* =========================
+   LABELS
+========================= */
 
 label {
-    font-size: 14px;
-    font-weight: 600;
-    margin-top: 8px;
+    margin-top: 7px;
+    margin-bottom: 2px;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    color: #1c1c1c;
 }
 
+
+/* =========================
+   INPUTS
+========================= */
+
 input,
-select {
+select,
+textarea {
     width: 100%;
-    padding: 12px 14px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    font-size: 15px;
-    background: white;
+
+    min-height: 40px;
+
+    padding: 8px 11px;
+
+    background: #ffffff;
+    color: #1c1c1c;
+
+    border: 2px solid #b8b5ae;
+    border-radius: 6px;
+
     outline: none;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: #1c1c1c;
 }
 
 input:focus,
-select:focus {
-    border-color: #111827;
+select:focus,
+textarea:focus {
+    border-color: #56738c;
+
+    box-shadow:
+        0 0 0 3px rgba(86, 115, 140, 0.1);
 }
 
-button {
-    margin-top: 18px;
-    padding: 14px;
-    border: none;
-    border-radius: 8px;
-    background: #111827;
-    color: white;
-    font-size: 15px;
-    font-weight: 700;
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+textarea {
+    min-height: 72px;
+    max-height: 100px;
+
+    resize: vertical;
+
+    line-height: 1.4;
+}
+
+
+/* =========================
+   PLACEHOLDERS
+========================= */
+
+input::placeholder,
+textarea::placeholder {
+    color: #9b978f;
+}
+
+
+/* =========================
+   NUMBER INPUTS
+========================= */
+
+input[type="number"] {
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* =========================
+   FILE INPUT
+========================= */
+
+input[type="file"] {
+    min-height: 40px;
+
+    padding: 5px 6px;
+
+    background: #f8f5ee;
+}
+
+input[type="file"]::file-selector-button {
+    margin-right: 9px;
+
+    padding: 6px 10px;
+
+    background: #fffdf7;
+    color: #1c1c1c;
+
+    border: 2px solid #1c1c1c;
+    border-radius: 5px;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        transform 0.15s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: #eee9df;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   SELECT
+========================= */
+
+select {
     cursor: pointer;
 }
 
-button:hover {
-    opacity: 0.88;
+
+/* =========================
+   ADD ITEM BUTTON
+========================= */
+
+.form-card button {
+    width: 100%;
+
+    margin-top: 12px;
+
+    padding: 11px 14px;
+
+    background: #b94a48;
+    color: #ffffff;
+
+    border: 2px solid #1c1c1c;
+    border-radius: 6px;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow: 3px 3px 0 #1c1c1c;
+
+    transition:
+        transform 0.12s ease,
+        box-shadow 0.12s ease,
+        background 0.12s ease;
 }
 
-#inventoryList {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-top: 20px;
+.form-card button:hover {
+    background: #a83f3d;
+
+    transform: translate(-1px, -1px);
+
+    box-shadow: 5px 5px 0 #1c1c1c;
 }
 
-#inventoryList p {
-    margin: 0;
-    padding: 18px 20px;
+.form-card button:active {
+    transform: translate(0, 0);
 
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.6;
-    letter-spacing: 0.2px;
-
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 2px 2px 0 #1c1c1c;
 }
 
-#inventoryList p:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: 0.2s;
+
+/* =========================
+   VIEW INVENTORY BUTTON
+========================= */
+
+.inventory-button {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 10px 14px;
+
+    text-align: center;
+    text-decoration: none;
+
+    background: #56738c;
+    color: #ffffff;
+
+    border: 2px solid #1c1c1c;
+    border-radius: 6px;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    box-shadow: 3px 3px 0 #1c1c1c;
+
+    transition:
+        transform 0.12s ease,
+        box-shadow 0.12s ease,
+        background 0.12s ease;
 }
 
-@media (max-width: 600px) {
+.inventory-button:hover {
+    background: #49667d;
+
+    transform: translate(-1px, -1px);
+
+    box-shadow: 5px 5px 0 #1c1c1c;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 850px) {
+
     .container {
         width: 94%;
-        margin: 25px auto;
+
+        margin: 18px auto 36px;
     }
 
-    .form-card {
-        padding: 20px;
+    .dashboard-layout {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .stats-panel {
+        position: static;
+
+        margin-left: 0;
+
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 8px;
+    }
+
+    .stats-panel h2 {
+        grid-column: 1 / -1;
+
+        margin-bottom: 2px;
+    }
+
+    .stat-card {
+        padding: 11px;
+
+        background: #f8f5ee;
+
+        border: 1px solid #b8b5ae;
+        border-radius: 5px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    .container {
+        width: 94%;
+
+        margin: 14px auto 28px;
     }
 
     h1 {
-        font-size: 28px;
+        margin-bottom: 16px;
+
+        font-size: 29px;
+    }
+
+    .stats-panel {
+        grid-template-columns: 1fr 1fr;
+
+        padding: 13px;
+    }
+
+    .stat-card strong {
+        font-size: 19px;
+    }
+
+    .form-card {
+        padding: 18px;
+    }
+
+    input,
+    select,
+    textarea {
+        min-height: 38px;
+
+        font-size: 12px;
+    }
+
+    textarea {
+        min-height: 64px;
+    }
+
+    .form-card button,
+    .inventory-button {
+        padding: 10px;
     }
 }
 
-.item-card {
-    display: flex;
-    align-items: center;
 
-    /* pushes the text farther away from the image */
-    gap: 35px;
+/* =========================
+   VERY SMALL PHONES
+========================= */
 
-    background: white;
-    padding: 22px;
-    border: 1px solid #e5e7eb;
-    border-radius: 14px;
+@media (max-width: 430px) {
 
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
-}
+    .stats-panel {
+        grid-template-columns: 1fr;
+    }
 
-.item-card img {
-    /* bigger clothing photo */
-    width: 170px;
-    height: 170px;
-
-    object-fit: cover;
-    border-radius: 12px;
-    border: 1px solid #e5e7eb;
-
-    /* stops flexbox from shrinking the image */
-    flex-shrink: 0;
-}
-
-.item-info {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-
-    /* extra push to the right */
-    padding-left: 10px;
-
-    flex: 1;
-}
-
-.item-info h3 {
-    margin: 0;
-    font-size: 22px;
-    font-weight: 700;
-}
-
-.item-info p {
-    margin: 0;
-    font-size: 15px;
-    line-height: 1.6;
-    color: #6b7280;
-}
-
-.item-info p:last-child {
-    margin-top: 8px;
-    width: fit-content;
-    padding: 6px 12px;
-    border-radius: 20px;
-
-    background: #f3f4f6;
-    color: #111827;
-
-    font-size: 13px;
-    font-weight: 700;
+    h1 {
+        font-size: 26px;
+    }
 }

@@ -1,0 +1,433 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f4f0e8;
+    color: #1c1c1c;
+}
+
+
+/* PAGE TITLE */
+
+h1 {
+    margin: 0;
+    padding-top: 26px;
+
+    text-align: center;
+
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: -1px;
+
+    color: #1c1c1c;
+}
+
+
+/* SEARCH */
+
+.search-wrap {
+    width: 94%;
+    max-width: 1120px;
+
+    margin: 18px auto 16px;
+
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+
+    left: 15px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 15px;
+
+    pointer-events: none;
+}
+
+#searchInput {
+    width: 100%;
+    height: 46px;
+
+    padding: 0 16px 0 44px;
+
+    background: #fffdf7;
+    color: #1c1c1c;
+
+    border: 2px solid #1c1c1c;
+    border-radius: 6px;
+
+    outline: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    box-shadow: 3px 3px 0 #b8b5ae;
+}
+
+#searchInput:focus {
+    border-color: #56738c;
+}
+
+
+/* HOME */
+
+.inventory-nav {
+    width: 94%;
+    max-width: 1120px;
+
+    margin: 0 auto 28px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.home-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    background: #1c1c1c;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    box-shadow: 3px 3px 0 #b94a48;
+}
+
+
+/* SECTION TITLES */
+
+h2 {
+    width: 94%;
+    max-width: 1120px;
+
+    margin: 26px auto 10px;
+
+    font-size: 17px;
+    font-weight: 900;
+
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+
+    color: #1c1c1c;
+}
+
+
+/* STATUS SECTIONS */
+
+#unlistedList,
+#listedList,
+#soldList,
+#shippedList {
+    width: 94%;
+    max-width: 1120px;
+
+    min-height: 64px;
+
+    margin: 0 auto 24px;
+    padding: 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    background: #fffdf7;
+
+    border: 2px solid #1c1c1c;
+    border-radius: 8px;
+}
+
+
+/* STATUS ACCENTS */
+
+#unlistedList {
+    box-shadow: 5px 5px 0 #b8b5ae;
+}
+
+#listedList {
+    box-shadow: 5px 5px 0 #56738c;
+}
+
+#soldList {
+    box-shadow: 5px 5px 0 #b94a48;
+}
+
+#shippedList {
+    box-shadow: 5px 5px 0 #68705a;
+}
+
+
+/* EMPTY STATE */
+
+#unlistedList:empty::before,
+#listedList:empty::before,
+#soldList:empty::before,
+#shippedList:empty::before {
+    content: "No items here";
+
+    display: block;
+
+    padding: 10px 4px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    color: #9b978f;
+}
+
+
+/* ITEM CARD */
+
+.item-card {
+    display: grid;
+
+    grid-template-columns:
+        100px
+        minmax(0, 1fr)
+        150px;
+
+    gap: 18px;
+    align-items: center;
+
+    padding: 14px;
+
+    background: #ffffff;
+
+    border: 2px solid #1c1c1c;
+    border-radius: 7px;
+
+    box-shadow: 3px 3px 0 #b8b5ae;
+
+    transition:
+        transform 0.12s ease,
+        box-shadow 0.12s ease;
+}
+
+.item-card:hover {
+    transform: translate(-1px, -1px);
+
+    box-shadow: 5px 5px 0 #b8b5ae;
+}
+
+
+/* IMAGE */
+
+.item-card img {
+    width: 100px;
+    height: 100px;
+
+    object-fit: cover;
+
+    border-radius: 5px;
+
+    border: 2px solid #1c1c1c;
+
+    background: #f8f5ee;
+}
+
+
+/* ITEM INFO */
+
+.item-info {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.item-info h3 {
+    margin: 0 0 3px;
+
+    font-size: 17px;
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    color: #1c1c1c;
+}
+
+.item-info p {
+    margin: 0;
+
+    font-size: 12px;
+    line-height: 1.45;
+
+    font-weight: 700;
+
+    color: #3f3f3f;
+}
+
+
+/* DESCRIPTION */
+
+.item-description {
+    max-width: 560px;
+
+    margin-top: 4px;
+
+    font-size: 12px;
+    line-height: 1.5;
+
+    font-weight: 600;
+
+    color: #6e6a63;
+
+    white-space: pre-wrap;
+}
+
+
+/* STATUS BADGE */
+
+.status-badge {
+    width: fit-content;
+
+    margin-top: 6px;
+
+    padding: 4px 9px;
+
+    background: #ede9df;
+    color: #1c1c1c;
+
+    border: 1px solid #b8b5ae;
+    border-radius: 4px;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+/* BUTTON GROUP */
+
+.button-group {
+    width: 150px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+/* BUTTONS */
+
+.item-card button {
+    width: 100%;
+
+    padding: 8px 10px;
+
+    border: 2px solid #1c1c1c;
+    border-radius: 5px;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow: 2px 2px 0 #1c1c1c;
+}
+
+
+/* COPY */
+
+.copy-button {
+    background: #f4f0e8;
+    color: #1c1c1c;
+}
+
+
+/* EDIT */
+
+.edit-button {
+    background: #dfe6ec;
+    color: #1c1c1c;
+}
+
+
+/* DELETE */
+
+.delete-button {
+    background: #f6d8d7;
+    color: #7f1d1d;
+}
+
+
+/* MARK LISTED */
+
+.list-button {
+    background: #d9e2e9;
+    color: #2f4d62;
+}
+
+
+/* MARK SOLD */
+
+.sold-button {
+    background: #b94a48;
+    color: white;
+}
+
+
+/* MARK SHIPPED */
+
+.shipped-button {
+    background: #cfd6c5;
+    color: #394331;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .item-card {
+        grid-template-columns: 76px 1fr;
+
+        gap: 12px;
+    }
+
+    .item-card img {
+        width: 76px;
+        height: 76px;
+    }
+
+    .button-group {
+        grid-column: 1 / -1;
+
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        gap: 7px;
+    }
+}
+
+.item-profit {
+    font-weight: bold;
+    color: green;
+}

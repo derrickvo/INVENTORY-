@@ -8,7 +8,40 @@
 </head>
 
 <body>
+<div class="dashboard-layout">
 
+    <div class="stats-panel">
+        <h2>Overview</h2>
+
+        <div class="stat-card">
+            <span>Total Items</span>
+            <strong id="totalItems">0</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Listed</span>
+            <strong id="listedCount">0</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Unlisted</span>
+            <strong id="unlistedCount">0</strong>
+        </div>
+        
+        <div class="stat-card">
+            <span>Total Spent</span>
+            <strong id="totalSpent">$0</strong>
+        </div>
+        <div class="stat-card">
+            <span>TOTAL SALES</span>
+            <strong id="totalSales">$0</strong>
+        </div>
+         <div class="stat-card">
+            <span>TOTAL PROFITS</span>
+            <strong id="totalPROFITS">$0</strong>
+        </div>
+         
+    </div>
     <div class="container">
 
         <h1>Depop Inventory</h1>
@@ -31,6 +64,9 @@
             <label>Listing Price</label>
             <input id="listingPrice" type="number">
 
+            <label>DESCRIPTION</label>
+            <input id="DESCRIPTION">
+
             <label>Status</label>
             <select id="status">
                 <option value="Unlisted">Unlisted</option>
@@ -43,11 +79,9 @@
 
         </div>
 
-        <h2>Inventory</h2>
 
-        <div id="inventoryList"></div>
 
-    </div>
+<a href="inventory.html" class="inventory-button">View Inventory</a>
 
     <script src="script.js"></script>
 

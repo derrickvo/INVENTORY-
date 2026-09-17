@@ -4,41 +4,56 @@ const size = document.getElementById("size");
 const Buy = document.getElementById("buyPrice");
 const ListingPrice = document.getElementById("listingPrice");
 const add = document.getElementById("ADD");
-const inventoryList = document.getElementById("inventoryList");
+const totalItems = document.getElementById("totalItems");
 const status = document.getElementById("status");
 const image = document.getElementById("image");
-let inventory = [];
+const listedCount = document.getElementById("listedCount");
+const unlisted = document.getElementById("unlistedCount");
+const totalSpent = document.getElementById("totalSpent");
+const totalSales = document.getElementById("totalSales");
+const totalProfits = document.getElementById("totalPROFITS");
+const description = document.getElementById("DESCRIPTION")
+
+let inventory = JSON.parse(localStorage.getItem("inventory")) || [];
+
+
+function updateStats() {
+    totalItems.textContent = inventory.length;
+
+    const listedItems = inventory.filter(function(item) {
+        return item.status === "Listed";
+    });
+    const unlistedItems = inventory.filter(function(item) {
+    return item.status === "Unlisted";
+});
+    const spent = inventory.reduce(function(total, item) {
+    return total + Number(item.bought);
+}, 0);
+const sales = inventory.reduce(function(total, item) {
+    return total + Number(item.soldPrice || 0);
+}, 0);
+  
+    const profits = sales - spent;
+    totalProfits.textContent = `$${profits.toFixed(2)}`;
+    totalSales.textContent = `$${sales.toFixed(2)}`;
+    totalSpent.textContent = `$${spent.toFixed(2)}`;
+    unlisted.textContent = unlistedItems.length;
+    listedCount.textContent = listedItems.length;
+}
+updateStats();
 
 add.addEventListener("click",function(){
 
 const images = image.files[0];
-const link = URL.createObjectURL(images);
-const imagelink = document.createElement("img");
-const itemCard = document.createElement("div");
-const itemTitle = document.createElement("h3");
-const itemInfo = document.createElement("div");
-itemTitle.textContent = itemName.value;
+const reader = new FileReader();
 
-const itemDetails = document.createElement("p");
-itemDetails.textContent = `${brand.value} • Size ${size.value}`;
+reader.onload = function() {
+newItem.image = reader.result;
+inventory.push(newItem);
+localStorage.setItem("inventory", JSON.stringify(inventory));
 
-const itemPrices = document.createElement("p");
-itemPrices.textContent = `Bought: $${Buy.value} • Listed: $${ListingPrice.value}`;
-
-const itemStatus = document.createElement("p");
-
-itemStatus.textContent=status.value;
-itemCard.className = "item-card";
-imagelink.src = link;
-itemInfo.className= "item-info";
-itemCard.append(imagelink);
-itemCard.append(itemInfo);
-
-itemInfo.append(itemTitle);
-itemInfo.append(itemDetails);
-itemInfo.append(itemPrices);
-itemInfo.append(itemStatus);
-inventoryList.append(itemCard);
+updateStats();
+}
 
 const newItem = {
     name: itemName.value,
@@ -46,8 +61,12 @@ const newItem = {
     size: size.value,
     bought:Buy.value,
     listing:ListingPrice.value,
-    status:status.value
+    description:description.value,
+    status:status.value,
+    dateAdded: new Date().toLocaleDateString()
 }
-inventory.push(newItem);
-localStorage.setItem("inventory", JSON.stringify(inventory))
+reader.readAsDataURL(images);
+
+
+
 });
