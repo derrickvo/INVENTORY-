@@ -32,7 +32,7 @@ function updateStats() {
 const sales = inventory.reduce(function(total, item) {
     return total + Number(item.soldPrice || 0);
 }, 0);
-  
+   
     const profits = sales - spent;
     totalProfits.textContent = `$${profits.toFixed(2)}`;
     totalSales.textContent = `$${sales.toFixed(2)}`;
@@ -40,33 +40,50 @@ const sales = inventory.reduce(function(total, item) {
     unlisted.textContent = unlistedItems.length;
     listedCount.textContent = listedItems.length;
 }
-updateStats();
 
-add.addEventListener("click",function(){
 
-const images = image.files[0];
-const reader = new FileReader();
+add.addEventListener("click", async function() {
 
-reader.onload = function() {
-newItem.image = reader.result;
-inventory.push(newItem);
-localStorage.setItem("inventory", JSON.stringify(inventory));
+    const images = image.files[0];
+    const reader = new FileReader();
 
-updateStats();
+    const newItem = {
+        name: itemName || null,
+        brand: brand || null,
+        size: size || null,
+        bought: buyPrice ? Number(buyPrice) : null,
+        listing: listingPrice ? Number(listingPrice) : null,
+        description: description || null,
+        status: status.value,
+        dateAdded: new Date().toLocaleDateString()
+    };
+
+    reader.onload = async function() {
+
+        newItem.image = reader.result;
+
+        const { data, error } = await supabaseClient
+            .from("INVENTORY")
+            .insert([
+                {
+                    name: newItem.name,
+                    brand: newItem.brand,
+                    size: newItem.size,
+                    bought: newItem.bought,
+                    listing: newItem.listing,
+                    description: newItem.description,
+                    status: newItem.status,
+                    date_added: newItem.dateAdded,
+                    image: newItem.image
+                }
+            ]);
+
+        console.log("DATA:", data);
+        console.log("ERROR:", error);
+    };
+if (!images) {
+    alert("Please choose an image.");
+    return;
 }
-
-const newItem = {
-    name: itemName.value,
-    brand: brand.value,
-    size: size.value,
-    bought:Buy.value,
-    listing:ListingPrice.value,
-    description:description.value,
-    status:status.value,
-    dateAdded: new Date().toLocaleDateString()
-}
-reader.readAsDataURL(images);
-
-
-
+    reader.readAsDataURL(images);
 });
