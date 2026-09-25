@@ -99,6 +99,7 @@ if (item.status === "Unlisted") {
     unlisted.append(itemCard);
     list.textContent = "MARK LISTED";
     buttonGroup.append(list);
+   
 } else if (item.status === "Listed") {
     soldNumber.textContent = "MARK SOLD";
     listed.append(itemCard);
