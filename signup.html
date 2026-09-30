@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+
+<body>
+
+    <div class="form-card" id="loginCard">
+        <h1>WELCOME TO WASHIVO</h1>
+
+        <input 
+            id="user" 
+            type="email"
+            placeholder="Enter Email"
+        >
+
+        <input 
+            id="password" 
+            type="password"
+            placeholder="Enter Password"
+        >
+        <input
+            id="username"
+            type="text"
+            placeholder = "Enter Username"
+            >
+        <button id="registerButton">
+            REGISTER
+        </button>
+       <button id="login">
+            LOGIN
+       </button>
+        <p id="registerMessage"></p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="signup.js"></script>
+
+</body>
+</html>

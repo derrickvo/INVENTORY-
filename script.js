@@ -1,3 +1,12 @@
+async function checkLogin() {
+    const { data } = await supabaseClient.auth.getSession();
+
+    if (!data.session) {
+        window.location.href = "login.html";
+    }
+}
+
+checkLogin();
 const itemName = document.getElementById("itemName");
 const brand = document.getElementById("brand");
 const size = document.getElementById("size");
@@ -12,11 +21,41 @@ const unlisted = document.getElementById("unlistedCount");
 const totalSpent = document.getElementById("totalSpent");
 const totalSales = document.getElementById("totalSales");
 const totalProfits = document.getElementById("totalPROFITS");
-const description = document.getElementById("DESCRIPTION")
+const description = document.getElementById("DESCRIPTION");
+const logout = document.getElementById("logoutButton");
+
+const logoutButton = document.getElementById("logoutButton");
+
+logoutButton.addEventListener("click", async function() {
+    await supabaseClient.auth.signOut();
+
+    window.location.href = "login.html";
+});
 
 let inventory = [];
 
+const bobbyToggle =
+    document.getElementById("bobbyToggle");
 
+const bobbyPopup =
+    document.getElementById("bobbyPopup");
+
+const bobbyClose =
+    document.getElementById("bobbyClose");
+
+
+bobbyToggle.addEventListener("click", function() {
+
+    bobbyPopup.classList.toggle("open");
+
+});
+
+
+bobbyClose.addEventListener("click", function() {
+
+    bobbyPopup.classList.remove("open");
+
+});
 function updateStats() {
     totalItems.textContent = inventory.length;
 
@@ -30,7 +69,7 @@ function updateStats() {
     return total + Number(item.bought);
 }, 0);
 const sales = inventory.reduce(function(total, item) {
-    return total + Number(item.soldPrice || 0);
+    return total + Number(item.sold_price || 0);
 }, 0);
    
     const profits = sales - spent;
@@ -61,7 +100,9 @@ add.addEventListener("click", async function() {
     reader.onload = async function() {
 
         newItem.image = reader.result;
-
+const {
+    data: { user }
+} = await supabaseClient.auth.getUser();
         const { data, error } = await supabaseClient
             .from("INVENTORY")
             .insert([
@@ -288,36 +329,6 @@ function answerExactInventoryQuestion(
 // ADD CHAT MESSAGE
 // =========================
 
-function addChatMessage(sender, text) {
-
-    const messageElement =
-        document.createElement("p");
-
-
-    if (sender === "user") {
-
-        messageElement.textContent =
-            "You: " + text;
-
-    } else {
-
-        messageElement.textContent =
-            "AI: " + text;
-
-    }
-
-
-    aiMessages.appendChild(
-        messageElement
-    );
-
-
-    aiMessages.scrollTop =
-        aiMessages.scrollHeight;
-
-
-    return messageElement;
-}
 
 
 // =========================
@@ -371,15 +382,16 @@ aiForm.addEventListener(
                 await supabaseClient
                     .from("INVENTORY")
                     .select(`
-                        name,
-                        brand,
-                        size,
-                        bought,
-                        listing,
-                        description,
-                        status,
-                        date_added
-                    `);
+    name,
+    brand,
+    size,
+    bought,
+    listing,
+    sold_price,
+    description,
+    status,
+    date_added
+`);
 
 
             if (inventoryError) {
@@ -596,5 +608,22 @@ function addChatMessage(sender, text) {
 // =========================
 // START APP
 // =========================
+async function loadInventory() {
+
+    const { data, error } = await supabaseClient
+        .from("INVENTORY")
+        .select("*");
+
+    if (error) {
+        console.error("LOAD INVENTORY ERROR:", error);
+        return;
+    }
+
+    inventory = data || [];
+
+    console.log("INVENTORY LOADED:", inventory);
+
+    updateStats();
+}
 
 loadInventory();

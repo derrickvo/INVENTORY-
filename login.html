@@ -3,18 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="style3.css">
 </head>
 
 <body>
 
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="robot-face">
+            <span class="eye left-eye"></span>
+            <span class="eye right-eye"></span>
+        </div>
 
+        <h1 id="welcomeName">WELCOME BACK</h1>
 
-<a href="inventory.html" class="inventory-button">View Inventory</a>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase.js"></script>
-    <script src="script.js"></script>
+        <p class="typing-text">
+            Initializing inventory system...
+        </p>
+
+        <div class="loading-pulse"></div>
+    </div>
+
+    <div class="form-card" id="loginCard">
+        <h1>LOGIN</h1>
+
+        <input 
+            id="user" 
+            type="email"
+            placeholder="Enter Email"
+        >
+
+        <input 
+            id="password" 
+            type="password"
+            placeholder="Enter Password"
+        >
+
+        <button id="loginButton">
+            Login
+        </button>
+        
+<button id="registerButton" class="register-secondary">
+    Create Account
+</button>
+
+        <p id="loginMessage"></p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="login.js"></script>
 
 </body>
 </html>

@@ -1,18 +1,38 @@
+async function checkLogin() {
+    const { data } = await supabaseClient.auth.getSession();
+
+    if (!data.session) {
+        window.location.href = "login.html";
+    }
+}
 
 let inventory = [];
 
 async function loadInventory() {
+
+    const {
+        data: { user }
+    } = await supabaseClient.auth.getUser();
+
+    if (!user) {
+        window.location.href = "login.html";
+        return;
+    }
+
     const { data, error } = await supabaseClient
         .from("INVENTORY")
-        .select("*");
+        .select("*")
+        .eq("user_id", user.id);
 
     console.log("DATA:", data);
     console.log("ERROR:", error);
 
-    inventory = data;
+    inventory = data || [];
+
     renderInventory();
 }
 
+checkLogin();
 function renderInventory() {
 inventory.forEach(function(item,index) {
 const imagelink = document.createElement("img");

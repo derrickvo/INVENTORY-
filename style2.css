@@ -8,34 +8,38 @@ body {
 
     font-family: Arial, Helvetica, sans-serif;
 
-    background: #f4f0e8;
-    color: #1c1c1c;
+    background: #f5f5f3;
+    color: #181818;
 }
 
 
-/* PAGE TITLE */
+/* =========================
+   PAGE TITLE
+========================= */
 
 h1 {
     margin: 0;
-    padding-top: 26px;
+    padding-top: 34px;
 
     text-align: center;
 
-    font-size: 36px;
-    font-weight: 900;
-    letter-spacing: -1px;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
 
-    color: #1c1c1c;
+    color: #181818;
 }
 
 
-/* SEARCH */
+/* =========================
+   SEARCH
+========================= */
 
 .search-wrap {
     width: 94%;
-    max-width: 1120px;
+    max-width: 1200px;
 
-    margin: 18px auto 16px;
+    margin: 24px auto 18px;
 
     position: relative;
 }
@@ -43,48 +47,57 @@ h1 {
 .search-icon {
     position: absolute;
 
-    left: 15px;
+    left: 16px;
     top: 50%;
 
     transform: translateY(-50%);
 
     font-size: 15px;
+    color: #777;
 
     pointer-events: none;
 }
 
 #searchInput {
     width: 100%;
-    height: 46px;
+    height: 48px;
 
     padding: 0 16px 0 44px;
 
-    background: #fffdf7;
-    color: #1c1c1c;
+    background: #ffffff;
+    color: #181818;
 
-    border: 2px solid #1c1c1c;
-    border-radius: 6px;
+    border: 1px solid #d8d8d3;
+    border-radius: 12px;
 
     outline: none;
 
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 500;
 
-    box-shadow: 3px 3px 0 #b8b5ae;
+    transition: border-color 0.15s ease,
+                background 0.15s ease;
 }
 
 #searchInput:focus {
-    border-color: #56738c;
+    border-color: #181818;
+    background: #ffffff;
+}
+
+#searchInput::placeholder {
+    color: #a1a19b;
 }
 
 
-/* HOME */
+/* =========================
+   HOME BUTTON
+========================= */
 
 .inventory-nav {
     width: 94%;
-    max-width: 1120px;
+    max-width: 1200px;
 
-    margin: 0 auto 28px;
+    margin: 0 auto 26px;
 
     display: flex;
     justify-content: center;
@@ -95,85 +108,78 @@ h1 {
     align-items: center;
     justify-content: center;
 
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
 
-    background: #1c1c1c;
+    background: #181818;
     color: white;
 
     text-decoration: none;
 
-    border-radius: 6px;
+    border-radius: 12px;
 
     font-size: 16px;
 
-    box-shadow: 3px 3px 0 #b94a48;
+    transition: transform 0.15s ease,
+                background 0.15s ease;
+}
+
+.home-button:hover {
+    background: #2a2a2a;
+    transform: translateY(-1px);
 }
 
 
-/* SECTION TITLES */
+/* =========================
+   SECTION TITLES
+========================= */
 
 h2 {
     width: 94%;
-    max-width: 1120px;
+    max-width: 1200px;
 
-    margin: 26px auto 10px;
+    margin: 30px auto 12px;
 
-    font-size: 17px;
-    font-weight: 900;
+    font-size: 16px;
+    font-weight: 700;
 
     text-transform: uppercase;
-    letter-spacing: 0.6px;
+    letter-spacing: 0.08em;
 
-    color: #1c1c1c;
+    color: #181818;
 }
 
 
-/* STATUS SECTIONS */
+/* =========================
+   STATUS SECTIONS
+========================= */
 
 #unlistedList,
 #listedList,
 #soldList,
 #shippedList {
     width: 94%;
-    max-width: 1120px;
+    max-width: 1200px;
 
-    min-height: 64px;
+    min-height: 76px;
 
-    margin: 0 auto 24px;
-    padding: 12px;
+    margin: 0 auto 26px;
+    padding: 14px;
 
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 
-    background: #fffdf7;
+    background: #ffffff;
 
-    border: 2px solid #1c1c1c;
-    border-radius: 8px;
+    border: 1px solid #d8d8d3;
+    border-radius: 16px;
 }
 
 
-/* STATUS ACCENTS */
-
-#unlistedList {
-    box-shadow: 5px 5px 0 #b8b5ae;
-}
-
-#listedList {
-    box-shadow: 5px 5px 0 #56738c;
-}
-
-#soldList {
-    box-shadow: 5px 5px 0 #b94a48;
-}
-
-#shippedList {
-    box-shadow: 5px 5px 0 #68705a;
-}
-
-
-/* EMPTY STATE */
+/* =========================
+   EMPTY STATE
+========================= */
 
 #unlistedList:empty::before,
 #listedList:empty::before,
@@ -183,66 +189,70 @@ h2 {
 
     display: block;
 
-    padding: 10px 4px;
+    padding: 14px 6px;
 
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 13px;
+    font-weight: 500;
 
-    color: #9b978f;
+    color: #9a9a95;
 }
 
 
-/* ITEM CARD */
+/* =========================
+   ITEM CARD
+========================= */
 
 .item-card {
     display: grid;
 
     grid-template-columns:
-        100px
+        110px
         minmax(0, 1fr)
-        150px;
+        160px;
 
-    gap: 18px;
+    gap: 20px;
     align-items: center;
 
-    padding: 14px;
+    padding: 16px;
 
-    background: #ffffff;
+    background: #f9f9f7;
 
-    border: 2px solid #1c1c1c;
-    border-radius: 7px;
-
-    box-shadow: 3px 3px 0 #b8b5ae;
+    border: 1px solid #e0e0dc;
+    border-radius: 14px;
 
     transition:
-        transform 0.12s ease,
-        box-shadow 0.12s ease;
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
 }
 
 .item-card:hover {
-    transform: translate(-1px, -1px);
+    transform: translateY(-1px);
 
-    box-shadow: 5px 5px 0 #b8b5ae;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
 
-/* IMAGE */
+/* =========================
+   IMAGE
+========================= */
 
 .item-card img {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
 
     object-fit: cover;
 
-    border-radius: 5px;
+    border-radius: 10px;
 
-    border: 2px solid #1c1c1c;
+    border: 1px solid #deded9;
 
-    background: #f8f5ee;
+    background: #f1f1ef;
 }
 
 
-/* ITEM INFO */
+/* =========================
+   ITEM INFO
+========================= */
 
 .item-info {
     min-width: 0;
@@ -250,169 +260,245 @@ h2 {
     display: flex;
     flex-direction: column;
 
-    gap: 4px;
+    gap: 5px;
 }
 
 .item-info h3 {
     margin: 0 0 3px;
 
-    font-size: 17px;
-    font-weight: 900;
+    font-size: 18px;
+    font-weight: 800;
 
-    text-transform: uppercase;
-
-    color: #1c1c1c;
+    color: #181818;
 }
 
 .item-info p {
     margin: 0;
 
-    font-size: 12px;
-    line-height: 1.45;
+    font-size: 13px;
+    line-height: 1.5;
 
-    font-weight: 700;
+    font-weight: 500;
 
-    color: #3f3f3f;
+    color: #555550;
 }
 
 
-/* DESCRIPTION */
+/* =========================
+   DESCRIPTION
+========================= */
 
 .item-description {
-    max-width: 560px;
+    max-width: 620px;
 
-    margin-top: 4px;
+    margin-top: 5px;
 
-    font-size: 12px;
-    line-height: 1.5;
+    font-size: 13px;
+    line-height: 1.55;
 
-    font-weight: 600;
+    font-weight: 400;
 
-    color: #6e6a63;
+    color: #74746f;
 
     white-space: pre-wrap;
 }
 
 
-/* STATUS BADGE */
+/* =========================
+   STATUS BADGE
+========================= */
 
 .status-badge {
     width: fit-content;
 
-    margin-top: 6px;
+    margin-top: 7px;
 
-    padding: 4px 9px;
+    padding: 5px 9px;
 
-    background: #ede9df;
-    color: #1c1c1c;
+    background: #eeeeeb;
+    color: #181818;
 
-    border: 1px solid #b8b5ae;
-    border-radius: 4px;
+    border: 1px solid #d8d8d3;
+    border-radius: 999px;
 
     font-size: 10px;
-    font-weight: 900;
+    font-weight: 700;
 
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.06em;
 }
 
 
-/* BUTTON GROUP */
+/* =========================
+   PROFIT
+========================= */
+
+.item-profit {
+    margin-top: 2px;
+
+    font-weight: 700;
+    color: #3f5f45;
+}
+
+
+/* =========================
+   BUTTON GROUP
+========================= */
 
 .button-group {
-    width: 150px;
+    width: 160px;
 
     display: flex;
     flex-direction: column;
 
-    gap: 7px;
+    gap: 8px;
 }
 
 
-/* BUTTONS */
+/* =========================
+   ITEM BUTTONS
+========================= */
 
 .item-card button {
     width: 100%;
 
-    padding: 8px 10px;
+    padding: 9px 12px;
 
-    border: 2px solid #1c1c1c;
-    border-radius: 5px;
+    border: 1px solid #d2d2ce;
+    border-radius: 9px;
 
-    font-size: 10px;
-    font-weight: 900;
+    font-size: 11px;
+    font-weight: 700;
 
     cursor: pointer;
 
-    box-shadow: 2px 2px 0 #1c1c1c;
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.item-card button:hover {
+    transform: translateY(-1px);
 }
 
 
 /* COPY */
 
 .copy-button {
-    background: #f4f0e8;
-    color: #1c1c1c;
+    background: #ffffff;
+    color: #181818;
+}
+
+.copy-button:hover {
+    background: #f0f0ed;
 }
 
 
 /* EDIT */
 
 .edit-button {
-    background: #dfe6ec;
-    color: #1c1c1c;
+    background: #ffffff;
+    color: #181818;
+}
+
+.edit-button:hover {
+    background: #f0f0ed;
 }
 
 
 /* DELETE */
 
 .delete-button {
-    background: #f6d8d7;
-    color: #7f1d1d;
+    background: #fff5f4;
+    color: #8a3431;
+
+    border-color: #ebd4d1 !important;
+}
+
+.delete-button:hover {
+    background: #f9e9e7;
 }
 
 
 /* MARK LISTED */
 
 .list-button {
-    background: #d9e2e9;
-    color: #2f4d62;
+    background: #181818;
+    color: white;
+
+    border-color: #181818 !important;
+}
+
+.list-button:hover {
+    background: #2a2a2a;
 }
 
 
 /* MARK SOLD */
 
 .sold-button {
-    background: #b94a48;
+    background: #181818;
     color: white;
+
+    border-color: #181818 !important;
+}
+
+.sold-button:hover {
+    background: #2a2a2a;
 }
 
 
 /* MARK SHIPPED */
 
 .shipped-button {
-    background: #cfd6c5;
-    color: #394331;
+    background: #181818;
+    color: white;
+
+    border-color: #181818 !important;
+}
+
+.shipped-button:hover {
+    background: #2a2a2a;
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 650px) {
 
     h1 {
-        font-size: 30px;
+        font-size: 34px;
+        padding-top: 24px;
+    }
+
+    .search-wrap,
+    .inventory-nav,
+    h2,
+    #unlistedList,
+    #listedList,
+    #soldList,
+    #shippedList {
+        width: calc(100% - 24px);
     }
 
     .item-card {
-        grid-template-columns: 76px 1fr;
+        grid-template-columns: 84px 1fr;
 
         gap: 12px;
+
+        padding: 12px;
     }
 
     .item-card img {
-        width: 76px;
-        height: 76px;
+        width: 84px;
+        height: 84px;
+    }
+
+    .item-info h3 {
+        font-size: 16px;
     }
 
     .button-group {
@@ -423,11 +509,548 @@ h2 {
         display: grid;
         grid-template-columns: 1fr 1fr;
 
-        gap: 7px;
+        gap: 8px;
     }
 }
 
+/* =========================
+   INVENTORY PAGE LOAD ANIMATION
+========================= */
+
+/* TITLE */
+
+h1 {
+    opacity: 0;
+    transform: translateY(-14px);
+
+    animation: inventoryTitleIn 0.45s ease forwards;
+}
+
+
+/* SEARCH */
+
+.search-wrap {
+    opacity: 0;
+    transform: translateY(12px);
+
+    animation: inventoryFadeUp 0.45s ease forwards;
+    animation-delay: 0.10s;
+}
+
+
+/* HOME BUTTON */
+
+.inventory-nav {
+    opacity: 0;
+    transform: scale(0.9);
+
+    animation: inventoryPopIn 0.35s ease forwards;
+    animation-delay: 0.18s;
+}
+
+
+/* SECTION TITLES */
+
+h2 {
+    opacity: 0;
+    transform: translateX(-12px);
+
+    animation: inventorySlideRight 0.4s ease forwards;
+}
+
+h2:nth-of-type(2) {
+    animation-delay: 0.25s;
+}
+
+h2:nth-of-type(3) {
+    animation-delay: 0.32s;
+}
+
+h2:nth-of-type(4) {
+    animation-delay: 0.39s;
+}
+
+h2:nth-of-type(5) {
+    animation-delay: 0.46s;
+}
+
+
+/* STATUS BOXES */
+
+#unlistedList {
+    opacity: 0;
+    transform: translateY(16px);
+
+    animation: inventoryFadeUp 0.45s ease forwards;
+    animation-delay: 0.28s;
+}
+
+#listedList {
+    opacity: 0;
+    transform: translateY(16px);
+
+    animation: inventoryFadeUp 0.45s ease forwards;
+    animation-delay: 0.36s;
+}
+
+#soldList {
+    opacity: 0;
+    transform: translateY(16px);
+
+    animation: inventoryFadeUp 0.45s ease forwards;
+    animation-delay: 0.44s;
+}
+
+#shippedList {
+    opacity: 0;
+    transform: translateY(16px);
+
+    animation: inventoryFadeUp 0.45s ease forwards;
+    animation-delay: 0.52s;
+}
+
+
+/* ITEM CARDS */
+
+.item-card {
+    animation: itemCardIn 0.4s ease both;
+}
+
+.item-card:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.item-card:nth-child(2) {
+    animation-delay: 0.10s;
+}
+
+.item-card:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.item-card:nth-child(4) {
+    animation-delay: 0.20s;
+}
+
+.item-card:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+
+/* =========================
+   KEYFRAMES
+========================= */
+
+@keyframes inventoryTitleIn {
+    from {
+        opacity: 0;
+        transform: translateY(-14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes inventoryFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes inventoryPopIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes inventorySlideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes itemCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.99);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+/* =====================================================
+   WASHIVO INVENTORY VIBE
+   PUT THIS AT THE VERY BOTTOM
+===================================================== */
+
+:root {
+    --washivo-bg: #f4f4f2;
+    --washivo-card: #ffffff;
+    --washivo-soft: #fafafa;
+    --washivo-text: #1f1f1f;
+    --washivo-muted: #747474;
+    --washivo-line: #dddddd;
+    --washivo-red: #ff6b6b;
+    --washivo-red-dark: #f45d5d;
+}
+
+
+/* PAGE */
+
+body {
+    background:
+        radial-gradient(
+            circle at 90% 8%,
+            rgba(255, 107, 107, 0.07),
+            transparent 27%
+        ),
+        var(--washivo-bg);
+
+    color: var(--washivo-text);
+}
+
+
+/* TITLE */
+
+h1 {
+    color: var(--washivo-text);
+
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+
+/* SEARCH */
+
+#searchInput {
+    height: 50px;
+
+    background: #ffffff;
+
+    border: 1.5px solid var(--washivo-line);
+    border-radius: 999px;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.04);
+}
+
+#searchInput:focus {
+    border-color: var(--washivo-red);
+
+    box-shadow:
+        0 0 0 4px rgba(255, 107, 107, 0.1);
+}
+
+
+/* HOME BUTTON */
+
+.home-button {
+    width: 46px;
+    height: 46px;
+
+    background: #ffffff;
+    color: #222;
+
+    border: 1px solid #dddddd;
+    border-radius: 50%;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.07);
+}
+
+.home-button:hover {
+    background: var(--washivo-red);
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* SECTION HEADINGS */
+
+h2 {
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    color: #333333;
+}
+
+
+/* STATUS SECTIONS */
+
+#unlistedList,
+#listedList,
+#soldList,
+#shippedList {
+    padding: 16px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--washivo-line);
+    border-radius: 24px;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.045);
+}
+
+
+/* GIVE EACH SECTION A LITTLE PERSONALITY */
+
+#unlistedList {
+    border-top: 4px solid #c7c7c7;
+}
+
+#listedList {
+    border-top: 4px solid #7aa7c7;
+}
+
+#soldList {
+    border-top: 4px solid var(--washivo-red);
+}
+
+#shippedList {
+    border-top: 4px solid #94ad84;
+}
+
+
+/* ITEM CARD */
+
+.item-card {
+    padding: 16px;
+
+    background: var(--washivo-soft);
+
+    border: 1px solid #e6e6e2;
+    border-radius: 20px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.025);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+}
+
+.item-card:hover {
+    background: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.07);
+}
+
+
+/* PRODUCT IMAGE */
+
+.item-card img {
+    border-radius: 16px;
+
+    border: 1px solid #dddddd;
+
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.05);
+}
+
+
+/* ITEM NAME */
+
+.item-info h3 {
+    font-weight: 900;
+
+    letter-spacing: -0.4px;
+}
+
+
+/* INFO */
+
+.item-info p {
+    color: #666666;
+}
+
+
+/* DESCRIPTION */
+
+.item-description {
+    color: #858585;
+}
+
+
+/* STATUS BADGE */
+
+.status-badge {
+    padding: 6px 11px;
+
+    background: #ffffff;
+    color: #555555;
+
+    border: 1px solid #dedede;
+    border-radius: 999px;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.03);
+}
+
+
+/* PROFIT */
+
 .item-profit {
-    font-weight: bold;
-    color: green;
+    color: #66835f;
+
+    font-weight: 900;
+}
+
+
+/* BUTTON GROUP */
+
+.button-group {
+    gap: 8px;
+}
+
+
+/* ALL ITEM BUTTONS */
+
+.item-card button {
+    padding: 10px 12px;
+
+    border-radius: 999px;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+
+/* COPY */
+
+.copy-button {
+    background: #ffffff;
+    color: #333333;
+
+    border: 1px solid #dddddd;
+}
+
+.copy-button:hover {
+    background: #f4f4f2;
+}
+
+
+/* EDIT */
+
+.edit-button {
+    background: #ffffff;
+    color: #333333;
+
+    border: 1px solid #dddddd;
+}
+
+.edit-button:hover {
+    background: #f4f4f2;
+}
+
+
+/* DELETE */
+
+.delete-button {
+    background: #fff4f3;
+    color: #aa4f4b;
+
+    border: 1px solid #f0d5d3 !important;
+}
+
+.delete-button:hover {
+    background: #ffe6e4;
+}
+
+
+/* MARK LISTED */
+
+.list-button {
+    background: #7aa7c7;
+    color: #ffffff;
+
+    border: none !important;
+
+    box-shadow:
+        0 7px 16px rgba(122, 167, 199, 0.18);
+}
+
+.list-button:hover {
+    background: #6998ba;
+}
+
+
+/* SOLD */
+
+.sold-button {
+    background: var(--washivo-red);
+    color: #ffffff;
+
+    border: none !important;
+
+    box-shadow:
+        0 7px 16px rgba(255, 107, 107, 0.20);
+}
+
+.sold-button:hover {
+    background: var(--washivo-red-dark);
+}
+
+
+/* SHIPPED */
+
+.shipped-button {
+    background: #94ad84;
+    color: white;
+
+    border: none !important;
+
+    box-shadow:
+        0 7px 16px rgba(148, 173, 132, 0.18);
+}
+
+.shipped-button:hover {
+    background: #839d74;
+}
+
+
+/* EMPTY SECTIONS */
+
+#unlistedList:empty::before,
+#listedList:empty::before,
+#soldList:empty::before,
+#shippedList:empty::before {
+    color: #aaaaaa;
+
+    text-align: center;
+
+    padding: 20px;
 }

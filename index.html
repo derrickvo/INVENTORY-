@@ -1,108 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Inventory</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<div class="dashboard-layout">
 
-    <div class="stats-panel">
-        <h2>Overview</h2>
+    <div class="dashboard-layout">
 
-        <div class="stat-card">
-            <span>Total Items</span>
-            <strong id="totalItems">0</strong>
+        <!-- LEFT SIDEBAR -->
+        <div class="stats-panel">
+
+            <h2>Overview</h2>
+
+            <div class="stat-card">
+                <span>Total Items</span>
+                <strong id="totalItems">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Listed</span>
+                <strong id="listedCount">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Unlisted</span>
+                <strong id="unlistedCount">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Total Spent</span>
+                <strong id="totalSpent">$0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Total Sales</span>
+                <strong id="totalSales">$0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Total Profits</span>
+                <strong id="totalPROFITS">$0</strong>
+            </div>
+
         </div>
 
-        <div class="stat-card">
-            <span>Listed</span>
-            <strong id="listedCount">0</strong>
+
+        <!-- MAIN CONTENT -->
+        <div class="container">
+
+            <h1>Depop Inventory</h1>
+
+            <div class="form-card">
+
+                <label>Picture</label>
+
+                <input
+                    type="file"
+                    id="image"
+                    accept="image/*"
+                >
+
+
+                <label>Item Name</label>
+
+                <input
+                    id="itemName"
+                    placeholder="e.g. Vintage Nike Hoodie"
+                >
+
+
+                <label>Brand</label>
+
+                <input
+                    id="brand"
+                    placeholder="e.g. Nike"
+                >
+
+
+                <label>Size</label>
+
+                <input
+                    id="size"
+                    placeholder="e.g. M"
+                >
+
+
+                <!-- PRICE ROW -->
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>Buy Price</label>
+
+                        <input
+                            id="buyPrice"
+                            type="number"
+                            placeholder="5"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Listing Price</label>
+
+                        <input
+                            id="listingPrice"
+                            type="number"
+                            placeholder="25"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Status</label>
+
+                        <select id="status">
+
+                            <option value="Unlisted">
+                                Unlisted
+                            </option>
+
+                            <option value="Listed">
+                                Listed
+                            </option>
+
+                            <option value="Sold">
+                                Sold
+                            </option>
+
+                            <option value="Shipped">
+                                Shipped
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <label>Description</label>
+
+                <textarea
+                    id="DESCRIPTION"
+                    placeholder="e.g. Great condition, vintage, Y2K..."
+                ></textarea>
+
+
+                <button id="ADD">
+                    Add Item
+                </button>
+
+            </div>
+
+
+            <a
+                href="inventory.html"
+                class="inventory-button"
+            >
+                View Inventory
+            </a>
+             <button id="logoutButton" class="logout-circle" title="Logout">
+    ⇥
+</button>
         </div>
 
-        <div class="stat-card">
-            <span>Unlisted</span>
-            <strong id="unlistedCount">0</strong>
-        </div>
-        
-        <div class="stat-card">
-            <span>Total Spent</span>
-            <strong id="totalSpent">$0</strong>
-        </div>
-        <div class="stat-card">
-            <span>TOTAL SALES</span>
-            <strong id="totalSales">$0</strong>
-        </div>
-         <div class="stat-card">
-            <span>TOTAL PROFITS</span>
-            <strong id="totalPROFITS">$0</strong>
-        </div>
-         
     </div>
-    <div class="container">
 
-        <h1>Depop Inventory</h1>
 
-        <div class="form-card">
-            <Label>PICTURE</Label>
-            <input type="file" id="image" accept="image/*">
-            <label>Item Name</label>
-            <input id="itemName">
+    <!-- BOBBY BUTTON -->
+    <button
+        id="bobbyToggle"
+        class="bobby-toggle"
+    >
+        BOBBY
+    </button>
 
-            <label>Brand</label>
-            <input id="brand">
 
-            <label>Size</label>
-            <input id="size">
+    <!-- BOBBY POPUP -->
+    <div
+        id="bobbyPopup"
+        class="bobby-popup"
+    >
 
-            <label>Buy Price</label>
-            <input id="buyPrice" type="number">
+        <div class="bobby-header">
 
-            <label>Listing Price</label>
-            <input id="listingPrice" type="number">
+            <h3>BOBBY</h3>
 
-            <label>DESCRIPTION</label>
-            <input id="DESCRIPTION">
-
-            <label>Status</label>
-            <select id="status">
-                <option value="Unlisted">Unlisted</option>
-                <option value="Listed">Listed</option>
-                <option value="Sold">Sold</option>
-                <option value="Shipped">Shipped</option>
-            </select>
-
-            <button id="ADD">Add Item</button>
+            <button
+                id="bobbyClose"
+                class="bobby-close"
+            >
+                ×
+            </button>
 
         </div>
 
 
-<a href="inventory.html" class="inventory-button">View Inventory</a>
-</div>
-
-<div class="ai-assistant">
-    <h2>BOBBY</h2>
-
-    <div id="aiMessages">
-        <p><strong>AI:</strong> Ask me anything about your inventory.</p>
-    </div>
-
-    <form id="aiForm">
-        <input
-            type="text"
-            id="aiInput"
-            placeholder="Ask about your inventory..."
+        <div
+            id="aiMessages"
+            class="ai-messages"
         >
 
-        <button type="submit">Ask</button>
-    </form>
-</div>
+            <div class="chat-message ai-message">
+                Ask me anything about your inventory.
+            </div>
+
+        </div>
+
+
+        <form
+            id="aiForm"
+            class="ai-form"
+        >
+
+            <input
+                id="aiInput"
+                type="text"
+                placeholder="Ask about your inventory..."
+                autocomplete="off"
+            >
+
+
+            <button type="submit">
+                →
+            </button>
+
+        </form>
+
     </div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="supabase.js"></script>
+
     <script src="script.js"></script>
 
 </body>
