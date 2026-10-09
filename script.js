@@ -3,7 +3,13 @@ async function checkLogin() {
 
     if (!data.session) {
         window.location.href = "login.html";
+        return;
     }
+    const username =
+    data.session.user.user_metadata.username || "USER";
+
+    document.getElementById("user").textContent =
+        `${username}'s Inventory`;
 }
 
 checkLogin();
@@ -23,7 +29,6 @@ const totalSales = document.getElementById("totalSales");
 const totalProfits = document.getElementById("totalPROFITS");
 const description = document.getElementById("DESCRIPTION");
 const logout = document.getElementById("logoutButton");
-
 const logoutButton = document.getElementById("logoutButton");
 
 logoutButton.addEventListener("click", async function() {
@@ -65,6 +70,7 @@ function updateStats() {
     const unlistedItems = inventory.filter(function(item) {
     return item.status === "Unlisted";
 });
+
     const spent = inventory.reduce(function(total, item) {
     return total + Number(item.bought);
 }, 0);
@@ -78,6 +84,8 @@ const sales = inventory.reduce(function(total, item) {
     totalSpent.textContent = `$${spent.toFixed(2)}`;
     unlisted.textContent = unlistedItems.length;
     listedCount.textContent = listedItems.length;
+
+
 }
 
 
@@ -415,9 +423,6 @@ aiForm.addEventListener(
             );
 
 
-            // =========================
-            // CHECK FOR EXACT QUESTION
-            // =========================
 
             const exactAnswer =
                 answerExactInventoryQuestion(

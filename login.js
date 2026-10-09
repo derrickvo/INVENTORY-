@@ -12,7 +12,7 @@ window.location.href = "signup.html";
 });
 
 loginButton.addEventListener("click", async function() {
-
+    
     const emailValue = user.value;
     const passValue = password.value;
 
@@ -25,10 +25,19 @@ loginButton.addEventListener("click", async function() {
         loginMessage.textContent =
             "Login failed: " + error.message;
     } else {
+const clickSound = new Audio(
+            "freesound_community-game-start-6104.mp3"
+        );
 
+        clickSound.play();
+
+        clickSound.addEventListener("ended", function() {
+            window.location.href = "homepage.html";
+        });
         const username =
             data.user.user_metadata.username || "USER";
-
+            
+        localStorage.setItem("username", username);
         welcomeName.textContent =
             `WELCOME BACK, ${username.toUpperCase()}`;
 
@@ -36,8 +45,9 @@ loginButton.addEventListener("click", async function() {
         welcomeScreen.style.display = "flex";
 
         setTimeout(function() {
-            window.location.href = "index.html";
+            window.location.href = "homepage.html";
         }, 1500);
     }
+
 
 });

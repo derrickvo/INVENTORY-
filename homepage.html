@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WASHIVO</title>
+<!-- Basic Icons -->
+ <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+<!-- Filled Icons -->
+<link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
+<!-- Brand Icons -->
+<link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="hp.css">
+</head>
+
+<body>
+<div class="sidebar">
+    <div class="top">
+        <div class="logo">
+            <i class="bx bx-package"></i>
+<span>WASHIVO</span>
+        </div>
+
+        <i class="bx bx-menu" id="btn"></i>
+        </div>
+
+      <div class="user">
+    <label for="pfpInput">
+        <img
+            alt="Profile Picture"
+            class="user-img"
+            id="profilePicture"
+        >
+    </label>
+
+    <input
+        type="file"
+        id="pfpInput"
+        accept="image/*"
+        hidden
+    >
+</div>
+         
+    
+
+<ul>
+
+
+    <li>
+        <a href="homepage.html">
+            <i class="bx bx-home"></i>
+            <span class="nav-item">Home</span>
+        </a>
+        <span class="tooltip">Home</span>
+    </li>
+
+    <li>
+        <a href="inventory.html">
+            <i class="bx bx-package"></i>
+            <span class="nav-item">Inventory</span>
+        </a>
+        <span class="tooltip">Inventory</span>
+    </li>
+
+    <li>
+        <a href="index.html">
+            <i class="bx bx-plus-circle"></i>
+            <span class="nav-item">Add Inventory</span>
+        </a>
+        <span class="tooltip">Add Inventory</span>
+    </li>
+      <li>
+        <a href="#">
+            <i class="bx bx-cog"></i>
+            <span class="nav-item">Setting</span>
+        </a>
+        <span class="tooltip">Setting</span>
+    </li>
+  
+</ul>
+
+<div class="logout-item">
+    <a href="#" id="logoutButton">
+        <i class="bx bx-arrow-out-right-square-half"></i>
+        <span>Logout</span>
+    </a>
+   
+</div>
+</div>
+
+
+
+
+
+
+<div class="main-content">
+    <div class="container">
+        <h1 id="user">HELLO</h1>
+    </div>
+     <div class="stats-panel">
+
+            
+            <div class="stat-card">
+                <span>Total Items</span>
+                <strong id="totalItems">0</strong>
+            </div>
+            <div class="stat-card">
+                <span>Listed</span>
+                <strong id="listedCount">0</strong>
+            </div>
+           
+            <div class="stat-card">
+                <span>Total Spent</span>
+                <strong id="totalSpent">$0</strong>
+            </div>
+            
+            <div class="stat-card">
+                <span>Total Profits</span>
+                <strong id="totalPROFITS">$0</strong>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+<section class="needs-attention">
+    <h2>Needs Attention</h2>
+
+    <div class="attention-container">
+
+        <div class="attention-item">
+            <div>
+                <span class="attention-label">Unlisted</span>
+                <p id="unlistedAttention"></p>
+            </div>
+
+            <span class="arrow">→</span>
+        </div>
+
+        <div class="attention-item">
+            <div>
+                <span class="attention-label">Ready to Ship</span>
+                <p id="soldItemsattention"></p>
+            </div>
+
+            <span class="arrow">→</span>
+        </div>
+
+        <div class="attention-item">
+            <div>
+                <span class="attention-label">Old Listings</span>
+                <p id="oldListingsAttention"></p>
+            </div>
+
+            <span class="arrow">→</span>
+        </div>
+        
+         </div>
+         </section>
+<section class="monthly-goal">
+
+    <h2>Monthly Profit Goal</h2>
+
+    <div class="goal-containers">
+
+        <p id="goalProgress">$0 / $0</p>
+
+        <div class="goal-edit">
+            <input
+                type="number"
+                id="monthlyGoalInput"
+                placeholder="Enter goal"
+            >
+
+            <button id="saveGoalBtn">Save</button>
+        </div>
+
+        <button id="edit">Edit Goal</button>
+
+    </div>
+
+</section>
+</div>
+</div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="hp.js"></script>
+</body>
+</html>

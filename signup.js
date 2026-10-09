@@ -32,10 +32,18 @@ registerButton.addEventListener("click", async function() {
         registerButton.textContent = "REGISTER";
 
     } else {
-        window.location.href = "index.html";
+        const clickSound = new Audio(
+            "freesound_community-game-start-6104.mp3"
+        );
+
+        clickSound.play();
+
+        clickSound.addEventListener("ended", function() {
+            window.location.href = "index.html";
+        });
     }
 });
 
 login.addEventListener("click", function() {
-    window.location.href = "login.html";
+    window.location.href = "homepage.html";
 });

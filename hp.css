@@ -1,0 +1,333 @@
+/* ---------- Tokens ---------- */
+:root {
+    --bg: #f4f0e8;
+    --card: #ffffff;
+    --ink: #12171e;
+    --muted: #5f6670;
+    --line: #e2ddd2;
+    --navy: #12171e;
+    --amber: #a8620a;
+    --blue: #1f5fa8;
+    --red: #b3261e;
+    --radius: 16px;
+}
+
+body {
+    background: var(--bg);
+    margin: 0;
+    height: 100vh;
+    color: var(--ink);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "League Spartan", sans-serif;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 80px;
+    background-color: var(--navy);
+    padding: .4rem .8rem;
+    transition: all 0.5s ease;
+    z-index: 10;
+}
+.sidebar.active { width: 250px; }
+.sidebar.active ~ .main-content {
+    left: 250px;
+    width: calc(100% - 250px);
+}
+.sidebar #btn {
+    position: absolute;
+    color: white;
+    top: .4rem;
+    left: 50%;
+    font-size: 1.2rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+.sidebar.active #btn { left: 90%; }
+
+.sidebar .top .logo {
+    color: white;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+}
+.sidebar.active .top .logo { opacity: 1; }
+.top .logo i { font-size: 2rem; margin-right: 5px; }
+
+.user {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    white-space: pre-line;
+}
+#user { white-space: pre-line; }
+.user p { color: white; opacity: 1; margin-left: 1rem; }
+.bold { font-weight: 600; }
+
+.user-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+}
+.user-img:hover { filter: brightness(1.25); transform: scale(1.03); }
+
+.sidebar ul { margin-top: 30px; }
+.sidebar p { opacity: 0; }
+.sidebar.active p { opacity: 1; }
+.sidebar ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+}
+.sidebar ul li a {
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+    transition: background .2s ease, color .2s ease;
+}
+.sidebar ul li a:hover { background-color: white; color: var(--navy); }
+.sidebar ul li a i {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+.sidebar .nav-item { opacity: 0; }
+.sidebar.active .nav-item { opacity: 1; }
+
+/* Tooltips (one clean block instead of four) */
+.sidebar ul li .tooltip {
+    position: absolute;
+    left: 85px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #f0eded;
+    color: var(--navy);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: .2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,.2);
+    z-index: 100;
+}
+.sidebar ul li:hover .tooltip,
+.sidebar ul li:focus-within .tooltip { opacity: 1; visibility: visible; }
+.sidebar.active ul li .tooltip { display: none; }
+
+.logout-item {
+    position: absolute;
+    bottom: 30px;
+    left: 33%;
+    transform: translateX(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+}
+.sidebar.active .logout-item { opacity: 1; pointer-events: auto; }
+.logout-item a {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    color: #fafafa;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 15px 14px;
+    border-radius: 8px;
+    transition: .2s ease;
+}
+.logout-item a:hover { background-color: rgb(148, 24, 24); }
+.logout-item i { font-size: 20px; }
+
+/* Visible keyboard focus everywhere */
+a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 3px solid #7fb2ff;
+    outline-offset: 2px;
+}
+
+/* ---------- Main ---------- */
+.main-content {
+    position: relative;
+    background: var(--bg);
+    min-height: 100vh;
+    top: 0;
+    left: 80px;
+    transition: all 0.5s ease;
+    width: calc(100% - 80px);
+    padding: 28px 32px 48px;
+}
+.container { width: 100%; }
+#user { font-size: 30px; font-weight: 700; line-height: 1.2; }
+
+/* ---------- Stat cards ---------- */
+.stats-panel {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+}
+.stat-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px;
+    min-height: 112px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+}
+.stat-card span { font-size: 15px; color: var(--muted); font-weight: 600; }
+.stat-card strong { font-size: 36px; line-height: 1; font-weight: 700; }
+
+/* ---------- Layout ---------- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 32px;
+    align-items: start;
+    margin-top: 32px;
+}
+.needs-attention h2,
+.monthly-goal h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 16px;
+}
+
+/* ---------- Needs attention ---------- */
+.attention-container { display: flex; flex-direction: column; gap: 12px; }
+.attention-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 18px;
+    transition: transform .2s ease;
+}
+.attention-item:hover { transform: translateX(2px); }
+.attention-label { display: block; font-size: 17px; font-weight: 700; }
+.attention-item p { font-size: 15px; color: var(--muted); margin-top: 2px; }
+.attention-item .arrow {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #efece4;
+    font-size: 18px;
+    color: var(--muted);
+}
+/* Accent by row position: Unlisted, Ready to Ship, Old Listings */
+.attention-item:nth-child(1) { border-left-color: var(--amber); }
+.attention-item:nth-child(2) { border-left-color: var(--blue); }
+.attention-item:nth-child(3) { border-left-color: var(--red); }
+
+/* ---------- Vinted Sniper link -> card ---------- */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+    padding: 18px 20px;
+    background: var(--navy);
+    color: white;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    transition: transform .2s ease;
+}
+.sidebar-link:hover { transform: translateY(-2px); }
+.sidebar-link i { font-size: 26px; }
+
+/* ---------- Monthly goal ---------- */
+.monthly-goal { width: 100%; max-width: none; }
+.monthly-goal h2 { margin-left: 0; margin-top: 0; }
+.goal-containers {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 22px;
+    width: 100%;
+    min-height: 0;
+    margin: 0;
+    text-align: left;
+}
+#goalProgress { margin: 0 0 18px; font-size: 26px; font-weight: 700; white-space: nowrap; }
+
+.goal-edit { display: none; align-items: center; gap: 10px; width: 100%; margin-bottom: 15px; }
+#monthlyGoalInput {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 1px solid #cfcac0;
+    border-radius: 9px;
+    outline: none;
+}
+#monthlyGoalInput:focus { border-color: var(--navy); }
+#saveGoalBtn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 9px;
+    background: var(--navy);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+#saveGoalBtn:hover { opacity: .85; }
+#edit {
+    padding: 8px 14px;
+    border: 1px solid #cfcac0;
+    border-radius: 9px;
+    background: white;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+#edit:hover { background: #f5f3ee; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+    .stats-panel { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+    .dashboard-grid { grid-template-columns: 1fr; }
+    .main-content { padding: 20px 16px 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+}
